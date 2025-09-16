@@ -1,0 +1,13 @@
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16  # pgvector prebuilt on PostgreSQL 16
+    container_name: pgvector_db
+    restart: always
+    environment:
+      POSTGRES_USER: marco
+      POSTGRES_PASSWORD: marco
+      POSTGRES_DB: sfaq_db
+    ports:
+      - "5432:5432"
+
