@@ -1,0 +1,21 @@
+name: semantic-faq-assistant
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.13
+  - fastapi
+  - uvicorn
+  - sqlalchemy
+  - python-dotenv
+  - psycopg2
+  - pydantic
+  - hashlib
+  - json
+  - pip
+  - pip:
+    - langchain-openai
+    - langchain-core
+    - openai
+    - pgvector
+    - .
