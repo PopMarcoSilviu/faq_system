@@ -33,7 +33,7 @@ ehthumbs.db
 Desktop.ini
 
 # IDE / editor files
-.vscode/
+.vscode
 .idea/
 *.sublime-project
 *.sublime-workspace
