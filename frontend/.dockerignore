@@ -1,0 +1,57 @@
+# frontend/.dockerignore
+
+# Python
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/__pycache__/
+**/*.egg-info/
+
+# Streamlit
+.streamlit/
+**/*.streamlit/
+
+# Data files (recursive)
+**/*.csv
+**/*.json  
+**/*.xlsx
+**/*.parquet
+**/*.db
+**/*.sqlite
+
+# Environment & secrets
+.env
+.env.*
+**/*.log
+
+# Development
+.git/
+.gitignore
+**/.DS_Store
+**/Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+**/*.swp
+**/*.swo
+
+# Testing
+tests/
+**/*_test.py
+**/test_*.py
+
+# Documentation
+**/*.md
+docs/
+README*
+
+# OS
+**/.DS_Store
+**/Thumbs.db
+
+# Build artifacts
+build/
+dist/
+*.tar.gz
+*.zip

@@ -1,7 +1,7 @@
 
 services:
   postgres:
-    image: pgvector/pgvector:pg16  # pgvector prebuilt on PostgreSQL 16
+    image: pgvector/pgvector:pg16 
     container_name: pgvector_db
     restart: always
     environment:
@@ -11,3 +11,12 @@ services:
     ports:
       - "5432:5432"
 
+  backend:
+    build: ./backend
+    container_name: semantic-faq-backend
+    restart: always
+    ports:
+      - "8000:8000" 
+
+    volumes:
+        - stored_data/data:/backend_app/data

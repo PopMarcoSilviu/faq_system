@@ -1,9 +1,0 @@
-setup.py
-sfaq.egg-info/PKG-INFO
-sfaq.egg-info/SOURCES.txt
-sfaq.egg-info/dependency_links.txt
-sfaq.egg-info/top_level.txt
-src/__init__.py
-src/main.py
-src/vector_db/__init__.py
-src/vector_db/pg_vector_db.py
