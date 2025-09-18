@@ -8,10 +8,8 @@ dependencies:
   - uvicorn
   - sqlalchemy
   - python-dotenv
-  - psycopg2
   - pydantic
-  - hashlib
-  - json
+  - psycopg
   - pip
   - pip:
     - langchain-openai

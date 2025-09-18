@@ -1,15 +1,23 @@
+volumes:
+  stored_data:
+    name: stored_data
+    external: true
 
 services:
   postgres:
     image: pgvector/pgvector:pg16 
     container_name: pgvector_db
     restart: always
-    environment:
-      POSTGRES_USER: marco
-      POSTGRES_PASSWORD: marco
-      POSTGRES_DB: sfaq_db
+    env_file:
+      - .env
     ports:
       - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U marco -d sfaq_db"]
+      interval: 30s       
+      timeout: 5s          
+      retries: 5          
+      start_period: 15s   
 
   backend:
     build: ./backend
@@ -17,6 +25,26 @@ services:
     restart: always
     ports:
       - "8000:8000" 
-
     volumes:
-        - stored_data/data:/backend_app/data
+      - stored_data:/backend_app/data
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+      interval: 30s      
+      timeout: 5s          
+      retries: 5          
+      start_period: 40s
+    env_file:
+      - .env
+
+  frontend:
+    build: ./frontend
+    container_name: streamlit_faq
+    restart: always
+    ports:
+      - "8501:8501" 
+    depends_on:
+      backend:
+        condition: service_healthy
